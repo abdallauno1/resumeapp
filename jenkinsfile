@@ -1,0 +1,49 @@
+pipeline{
+    agent any
+    environment{
+      DOCKERHUB_CREDENTIALS = credentials('abdallauno1-dockerhub')
+    }
+    stages{
+        stage("Clone Repository"){
+          /* cloning the repository into our workspace   */
+            steps{
+                checkout scm
+            }  
+        }
+        stage("Build  image"){
+          /* build docker image  */
+            steps{
+                sh 'docker build -t abdallauno1/flaskwebapp:v1 .'
+            }            
+        }
+        stage("Login"){
+          /* login in dockerhub  */
+            steps{
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+            }            
+        }
+        stage("Push image"){
+          /* push docker image to dockerhub */
+            steps{
+                sh 'docker push abdallauno1/flaskwebapp:v1'
+            }            
+        }
+        stage("Run image"){
+          /* run the docker image in background*/
+            steps{
+                sh 'docker run -d -p 5000:4000 --name flaskapp abdallauno1/flaskwebapp:v1'
+            }            
+        }
+    }
+    post{
+        always{
+            sh "docker logout"
+        }
+        success{
+            echo "========pipeline executed successfully ========"
+        }
+        failure{
+            echo "========pipeline execution failed========"
+        }
+    }
+}
