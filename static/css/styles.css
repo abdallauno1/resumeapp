@@ -7359,6 +7359,7 @@ textarea.form-control-lg {
 
 .mb-0 {
   margin-bottom: 0 !important;
+  text-align: left;
 }
 
 .mb-1 {
@@ -7785,6 +7786,55 @@ textarea.form-control-lg {
 .text-white-50 {
   --bs-text-opacity: 1;
   color: rgba(255, 255, 255, 0.5) !important;
+  text-align: center;
+  vertical-align: text-top;
+
+}
+
+.top-left-comunication {
+  position: absolute;
+  top: 30px;
+  left: 200px;
+}
+.com-det {
+  position:fixed;
+
+  left: 20px;
+  text-align: left;
+
+  
+}
+
+.lis-det {
+  position: absolute;
+  left: 20px;
+
+}
+
+.top-left-solving {
+  position: absolute;
+  top: 30px;
+  left: 250px;
+}
+.top-left-org {
+  position: absolute;
+  top: 30px;
+  left: 200px;
+}
+.top-left-lis {
+  position: absolute;
+  top: 30px;
+  left: 200px;
+}
+.top-left-coll {
+  position: absolute;
+  top: 30px;
+  left: 200px;
+}
+.top-left-div {
+  position: absolute;
+  top: 30px;
+  left: 200px;
 }
 
 .text-reset {
@@ -11450,9 +11500,11 @@ header.masthead h1, header.masthead .h1 {
   font-size: 0.85rem;
   font-weight: 600;
   text-transform: uppercase;
+  vertical-align: text-top;
 }
 #portfolio .container-fluid .portfolio-box .portfolio-box-caption .project-name, #portfolio .container-sm .portfolio-box .portfolio-box-caption .project-name, #portfolio .container-md .portfolio-box .portfolio-box-caption .project-name, #portfolio .container-lg .portfolio-box .portfolio-box-caption .project-name, #portfolio .container-xl .portfolio-box .portfolio-box-caption .project-name, #portfolio .container-xxl .portfolio-box .portfolio-box-caption .project-name {
   font-size: 1.2rem;
+ 
 }
 #portfolio .container-fluid .portfolio-box:hover .portfolio-box-caption, #portfolio .container-sm .portfolio-box:hover .portfolio-box-caption, #portfolio .container-md .portfolio-box:hover .portfolio-box-caption, #portfolio .container-lg .portfolio-box:hover .portfolio-box-caption, #portfolio .container-xl .portfolio-box:hover .portfolio-box-caption, #portfolio .container-xxl .portfolio-box:hover .portfolio-box-caption {
   opacity: 1;
