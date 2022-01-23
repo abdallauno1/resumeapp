@@ -13,7 +13,7 @@ pipeline{
         stage("Build  image"){
           /* build docker image  */
             steps{
-                sh 'docker build -t abdallauno1/flaskwebapp:v1 .'
+                sh 'docker build -t abdallauno1/resumeapp:v1 .'
             }            
         }
         stage("Login"){
@@ -25,13 +25,13 @@ pipeline{
         stage("Push image"){
           /* push docker image to dockerhub */
             steps{
-                sh 'docker push abdallauno1/flaskwebapp:v1'
+                sh 'docker push abdallauno1/resumeapp:v1'
             }            
         }
         stage("Run image"){
           /* run the docker image in background*/
             steps{
-                sh 'docker run -d -p 5000:4000 --name flaskapp abdallauno1/flaskwebapp:v1'
+                sh 'docker run -d -p 6000:4000 --name flaskapp abdallauno1/resumeapp:v1'
             }            
         }
     }
