@@ -1,5 +1,5 @@
 pipeline{
-    agent {label 'MasterNode'}
+    agent any
     environment{
       DOCKERHUB_CREDENTIALS = credentials('abdallauno1-dockerhub')
     }
