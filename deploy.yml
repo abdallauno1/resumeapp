@@ -22,10 +22,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: sba-service
+  name: resume-service
 spec:
   selector:
-    app: sba-site
+    app: resume-site
   ports:
   - protocol: "TCP"
     port: 4000
