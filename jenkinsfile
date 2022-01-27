@@ -4,12 +4,6 @@ pipeline{
       DOCKERHUB_CREDENTIALS = credentials('abdallauno1-dockerhub')
     }
     stages{
-        stage("Clone Repository"){
-          /* cloning the repository into our workspace   */
-            steps{
-                git credentialsId: 'gitHub', url: 'https://github.com/abdallauno1/resumeapp'
-            }  
-        }
         stage("Build  image"){
           /* build docker image  */
             steps{
