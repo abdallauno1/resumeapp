@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect
+from flask_bootstrap import Bootstrap
 from datetime import datetime
 
 import smtplib
@@ -8,7 +9,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mady.db'
 # app.run(host="localhost", port=5050, debug=True)
 # INIT THE DATABASE
-
+Bootstrap(app)
 
 @app.route('/')
 def index():
@@ -37,5 +38,4 @@ def form():
     return  render_template("form.html",title=title,first_name=first_name,last_name=last_name,email=email)
 
 if __name__ == '__main__':
-    app.run(debug=True)
-    app.run(host='0.0.0.0',port=5000)
+    app.run(host="0.0.0.0", port=5000, debug=True)
