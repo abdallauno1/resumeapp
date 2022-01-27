@@ -22,8 +22,7 @@ pipeline{
                 sh 'docker push abdallauno1/resumeapp:v1'
             }            
         }
-        stage("Deploy on k8s"){
-		agent {label 'ubuntu-vm'}
+        stage("Deploy k8s on Linux Machine"){
 	        steps{
                 sshagent(['mabdalla']) {
                     sh "scp -o StrictHostKeyChecking=no deploy.yml mabdalla@192.168.96.100:/home/mabdalla"
