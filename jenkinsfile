@@ -29,10 +29,13 @@ pipeline{
 		    sh "scp -o StrictHostKeyChecking=no playbook.yml mabdalla@192.168.96.100:/home/mabdalla"
                     script{
                         try{
-                            sh "ssh mabdalla@192.168.96.100 kubectl apply -f deploy.yml"
-
+			sh '''#!/bin/sh
+                        	  ssh  mabdalla@192.168.96.100
+				  kubectl apply -f deploy.yml
+				  ansible-playbook playbook.yml
+                      	    '''    
                         }catch(error){
-                            sh "ssh mabdalla@192.168.96.100 kubectl create -f deploy.yml"
+                            echo "========can not SSH to Linux Machine ========"
                         }
                     }
                 }
